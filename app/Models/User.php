@@ -6,11 +6,15 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Cliente;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function cliente(){
+        return $this->hasOne('App\Models\Cliente', 'id_users', 'id');
+    }
     /**
      * The attributes that are mass assignable.
      *

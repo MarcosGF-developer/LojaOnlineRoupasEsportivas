@@ -1,9 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Cliente;
+use App\Models\Endereco;
+use App\Models\Produto;
 
 class Venda extends Model
 {
