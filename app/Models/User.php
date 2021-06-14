@@ -10,7 +10,7 @@ use App\Models\Cliente;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use Notifiable;
 
     public function cliente(){
         return $this->hasOne('App\Models\Cliente', 'id_users', 'id');

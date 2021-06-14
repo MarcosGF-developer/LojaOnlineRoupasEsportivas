@@ -15,8 +15,8 @@ class CreateEnderecos extends Migration
     {
         Schema::create('enderecos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_cidade');
-            $table->unsignedBigInteger('id_cliente');
+            $table->unsignedBigInteger('id_cidades');
+            $table->unsignedBigInteger('id_clientes');
             $table->string('descricao', 250);
             $table->string('logradouro', 250);
             $table->string('numero', 5);
@@ -24,8 +24,8 @@ class CreateEnderecos extends Migration
             $table->timestamps();
             $table->softDeletes(); 
                 
-            $table->foreign('id_cidade')->references('id')->on('cidades');
-            $table->foreign('id_cliente')->references('id')->on('clientes');
+            $table->foreign('id_cidades')->references('id')->on('cidades');
+            $table->foreign('id_clientes')->references('id')->on('clientes');
         });
     }
 
