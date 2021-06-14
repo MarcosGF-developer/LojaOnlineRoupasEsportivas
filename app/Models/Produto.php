@@ -1,9 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\FotoProduto;
+use App\Models\Categoria;
+use App\Models\Tamanho;
+use App\Models\Venda;
 
 class Produto extends Model
 {
