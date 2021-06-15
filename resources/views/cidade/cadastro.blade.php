@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
 
-            <div class="card">
+            <div class="card text-white bg-dark">
             
                 <div class="card-header">
                     <h2>Cadastro de <b>Cidades</b></h2>
@@ -45,13 +45,13 @@
 
                         <div class="form-group row">
                             <div class="col text-center">
-                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <button type="submit" class="btn btn-light">Salvar</button>
                             </div>
                         </div>
 
                     </form>
 
-                    <a href="{{ route('cidade_lista') }}" class="btn btn-primary">Voltar</a>
+                    <a href="{{ route('cidade_lista') }}" class="btn btn-secondary">Voltar</a>
 
                 </div>
             

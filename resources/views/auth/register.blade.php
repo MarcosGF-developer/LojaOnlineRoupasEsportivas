@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card text-white bg-dark">
                 
                 <div class="card-header">
                     <h2>Cadastre-se</h2>
@@ -139,7 +139,7 @@
                         <!-- Botao submit -->
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <button type="submit" class="btn btn-light">Salvar</button>
                             </div>
                         </div>
                         <!-- Botao submit -->

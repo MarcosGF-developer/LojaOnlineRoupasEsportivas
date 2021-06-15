@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
 
-            <div class="card">
+            <div class="card text-white bg-dark">
 
                 <div class="card-header">
                     <div class="row">
@@ -17,14 +17,14 @@
                             <form>
                                 <div class="input-group">
                                     <input type="hidden" name="ordem" value="{{ $ordem }}">
-                                    <input class="btn btn-primary" type="submit" value="Buscar">
+                                    <input class="btn btn-secondary" type="submit" value="Buscar">
                                     <input class="form-control" type="text" name="busca" autocomplete="off">
                                 </div>
                             </form>
                         </div>
                         
                         <div class="col col-md-2 text-right">
-                            <a href="{{ route('endereco_cadastro') }}" class="btn btn-success">Adicionar</a>
+                            <a href="{{ route('endereco_cadastro') }}" class="btn btn-light">Adicionar</a>
                         </div>
                     </div>
                     <div class="row">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="card-body">
                 
-                    <table class="table">
+                    <table class="table table-dark table-striped">
                         <thead>
                             <tr>
                                 <th class="text-center"><a href="?ordem=id_cidade&busca={{ $busca }}">Cidade</a></th>
