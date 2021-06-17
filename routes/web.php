@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EnderecoController;
 use App\Http\Controllers\CidadeController;
+use App\Http\Controllers\TamanhoController;
 
 
 Route::get('/', function () {
@@ -30,3 +31,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::get('/cidade/cadastro/{id?}', [CidadeController::class,'cadastro'])->name('cidade_cadastro');
     Route::post('/cidade/salvar/{id?}', [CidadeController::class,'salvar'])->name('cidade_salvar');
     Route::get('/cidade/excluir/{id}', [CidadeController::class,'excluir'])->name('cidade_excluir');
+
+/**ROTAS TAMANHO*/
+    Route::get('/tamanho/lista', [TamanhoController::class,'lista'])->name('tamanho_lista');
+    Route::get('/tamanho/cadastro/{id?}', [TamanhoController::class,'cadastro'])->name('tamanho_cadastro');
+    Route::post('/tamanho/salvar/{id?}', [TamanhoController::class,'salvar'])->name('tamanho_salvar');
+    Route::get('/tamanho/excluir/{id}', [TamanhoController::class,'excluir'])->name('tamanho_excluir');
