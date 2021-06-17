@@ -60,6 +60,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('cidade_lista') }}">Cidades</a>
                                     <a class="dropdown-item" href="{{ route('endereco_lista') }}">Endereços</a>
+                                    <a class="dropdown-item" href="{{ route('tamanho_lista') }}">Tamanhos</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
