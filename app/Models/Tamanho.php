@@ -13,6 +13,6 @@ class Tamanho extends Model
     protected $primaryKey = "id";
 
     public function produtos(){
-        return $this->hasMany('App\Models\Produto', 'id_tamanhos', 'id');
+        return $this->hasMany(Produto::class, 'id_tamanhos', 'id');
     }
 }

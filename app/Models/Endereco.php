@@ -16,14 +16,14 @@ class Endereco extends Model
     protected $primaryKey = "id";
 
     public function cliente(){
-        return $this->belongsTo('App\Models\Cliente', 'id_clientes', 'id');
+        return $this->belongsTo(Cliente::class, 'id_clientes', 'id');
     }
 
     public function vendas(){
-        return $this->hasMany('App\Models\Venda', 'id_enderecos', 'id');
+        return $this->hasMany(Venda::class, 'id_enderecos', 'id');
     }
 
     public function cidade(){
-        return $this->belongsTo('App\Models\Cidade', 'id_cidades', 'id');
+        return $this->belongsTo(Cidade::class, 'id_cidades', 'id');
     }
 }

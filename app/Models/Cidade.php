@@ -14,6 +14,6 @@ class Cidade extends Model
     protected $primaryKey = "id";
 
     public function endereco(){
-        return $this->hasMany('App\Models\Endereco', 'id_cidades', 'id');
+        return $this->hasMany(Endereco::class, 'id_cidades', 'id');
     }
 }

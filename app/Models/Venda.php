@@ -16,14 +16,14 @@ class Venda extends Model
     protected $primaryKey = "id";
 
     public function cliente(){
-        return $this->belongsTo('App\Models\Cliente', 'id_clientes', 'id');
+        return $this->belongsTo(Cliente::class, 'id_clientes', 'id');
     }
 
     public function endereco(){
-        return $this->belongsTo('App\Models\Endereco', 'id_enderecos', 'id');
+        return $this->belongsTo(Endereco::class, 'id_enderecos', 'id');
     }
     
     public function produtos(){
-        return $this->belongsToMany('App\Models\Produto', 'produtos_vendas', 'id_vendas', 'id_produtos')->withTimestamps();
+        return $this->belongsToMany(Produto::class, 'produtos_vendas', 'id_vendas', 'id_produtos')->withTimestamps();
     }
 }

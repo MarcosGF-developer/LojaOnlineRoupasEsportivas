@@ -16,19 +16,21 @@ class Produto extends Model
     protected $table = "produtos";
     protected $primaryKey = "id";
 
-    public function fotos(){
-        return $this->hasMany('App\Models\FotoProduto', 'id_produtos', 'id');
-    }
 
     public function categorias() {
-        return $this->belongsTo('App\Models\Categoria', 'id_produtos', 'id');
+        return $this->belongsTo(Categoria::class, 'id_categorias', 'id');
     }
 
     public function tamanhos() {
-        return $this->belongsTo('App\Models\Tamanho', 'id_produtos', 'id');
+        return $this->belongsTo(Tamanho::class, 'id_tamanhos', 'id');
     }
 
+    public function fotos(){
+        return $this->hasMany(FotoProduto::class, 'id_produtos', 'id');
+    }
+
+
     public function vendas() {
-        return $this->belongsToMany('App\Models\Venda', 'produtos_vendas', 'id_produtos', 'id_vendas')->withTimestamps();
+        return $this->belongsToMany(Venda::class, 'produtos_vendas', 'id_produtos', 'id_vendas')->withTimestamps();
     }
 }
