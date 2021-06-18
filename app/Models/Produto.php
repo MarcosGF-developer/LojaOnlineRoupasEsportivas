@@ -25,7 +25,7 @@ class Produto extends Model
     }
 
     public function tamanhos() {
-        return $this->belongsToMany('App\Models\Tamanho', 'id_produtos', 'id');
+        return $this->belongsTo('App\Models\Tamanho', 'id_produtos', 'id');
     }
 
     public function vendas() {

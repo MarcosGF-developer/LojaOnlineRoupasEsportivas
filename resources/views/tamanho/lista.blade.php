@@ -37,8 +37,8 @@
                         <thead>
                             <tr class="table-ligth">
                                 <th class="text-center"><a href="?ordem=id&busca={{ $busca }}">ID</a></th>
-                                <th class="text-center"><a href="?ordem=nome&busca={{ $busca }}">Sigla</a></th>
-                                <th class="text-center"><a href="?ordem=estado&busca={{ $busca }}">Descrição</a></th>
+                                <th class="text-center"><a href="?ordem=sigla&busca={{ $busca }}">Sigla</a></th>
+                                <th class="text-center"><a href="?ordem=descricao&busca={{ $busca }}">Descrição</a></th>
                                 <th class="text-center">Ações</th>
                             </tr>
                         </thead>
