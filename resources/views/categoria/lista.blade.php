@@ -10,7 +10,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-12 col-md-5">
-                            <h2>Lista de <b>Enderecos</b></h2>
+                            <h2>Lista de <b>Categorias</b></h2>
                         </div>
                         
                         <div class="col">
@@ -24,7 +24,7 @@
                         </div>
                         
                         <div class="col col-md-2 text-right">
-                            <a href="{{ route('endereco_cadastro') }}" class="btn btn-light">Adicionar</a>
+                            <a href="{{ route('categoria_cadastro') }}" class="btn btn-light">Adicionar</a>
                         </div>
                     </div>
                     <div class="row">
@@ -35,35 +35,29 @@
                 
                     <table class="table table-dark table-striped">
                         <thead>
-                            <tr>
-                                <th class="text-center"><a href="?ordem=id_cidades&busca={{ $busca }}">Cidade</a></th>
+                            <tr class="table-ligth">
                                 <th class="text-center"><a href="?ordem=id&busca={{ $busca }}">ID</a></th>
-                                <th class="text-center"><a href="?ordem=descricao&busca={{ $busca }}">Descrição</a></th>
-                                <th class="text-center"><a href="?ordem=logradouro&busca={{ $busca }}">Logradouro</a></th>
-                                <th class="text-center"><a href="?ordem=numero&busca={{ $busca }}">Número</a></th>
-                                <th class="text-center"><a href="?ordem=bairro&busca={{ $busca }}">Bairro</a></th>
+                                <th class="text-center"><a href="?ordem=nome&busca={{ $busca }}">Nome</a></th>
+                                <th class="text-center"><a href="?ordem=categoria_pai&busca={{ $busca }}">Categoria Pai</a></th>
                                 <th class="text-center">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($enderecos as $endereco)
+                            @foreach ($categorias as $categoria)
                                 <tr>
-                                    <th class="text-center">{{ $endereco->cidade->nome }}</td>
-                                    <th class="text-center">{{ $endereco->id }}</td>
-                                    <td class="text-center">{{ $endereco->descricao }}</td>
-                                    <td class="text-center">{{ $endereco->logradouro }}</td>
-                                    <td class="text-center">{{ $endereco->numero }}</td>
-                                    <td class="text-center">{{ $endereco->bairro }}</td>
+                                    <th class="text-center">{{ $categoria->id }}</td>
+                                    <td class="text-center">{{ $categoria->nome }}</td>
+                                    <td class="text-center">{{ $categoria->categoria_pai }}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('endereco_cadastro', $endereco->id) }}" class="btn btn-sm btn-warning">Alterar</a>
-                                        <a class="btn btn-sm btn-danger" href="#" onclick="exclui( {{ $endereco->id }} )">Excluir</a>
+                                        <a href="{{ route('categoria_cadastro', $categoria->id) }}" class="btn btn-sm btn-warning">Alterar</a>
+                                        <a class="btn btn-sm btn-danger" href="#" onclick="exclui( {{ $categoria->id }} )">Excluir</a>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                     
-                    {{ $enderecos->links() }}
+                    {{ $categorias->links() }}
 
                 </div>
 
@@ -75,8 +69,8 @@
 
 <script>
 	function exclui(id){
-		if (confirm("Deseja excluir o endereço de id: " + id + "?")){
-			location.href = "/endereco/excluir/" + id;
+		if (confirm("Deseja excluir a categoria de id: " + id + "?")){
+			location.href = "/categoria/excluir/" + id;
 		}
 	}
 </script>
