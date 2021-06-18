@@ -13,7 +13,7 @@ class User extends Authenticatable
     use Notifiable;
 
     public function cliente(){
-        return $this->hasOne('App\Models\Cliente', 'id_users', 'id');
+        return $this->hasOne(Cliente::class, 'id_users', 'id');
     }
     /**
      * The attributes that are mass assignable.

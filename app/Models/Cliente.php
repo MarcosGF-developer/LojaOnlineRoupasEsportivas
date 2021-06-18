@@ -16,14 +16,14 @@ class Cliente extends Model
     protected $primaryKey = "id";
 
     public function user(){
-        return $this->belongsTo('App\Models\User', 'id_users', 'id');
+        return $this->belongsTo(User::class, 'id_users', 'id');
     }
 
     public function vendas(){
-        return $this->hasMany('App\Models\Venda', 'id_clientes', 'id');
+        return $this->hasMany(Venda::class, 'id_clientes', 'id');
     }
 
     public function enderecos(){
-        return $this->hasMany('App\Models\Endereco', 'id_clientes', 'id');
+        return $this->hasMany(Endereco::class, 'id_clientes', 'id');
     }
 }

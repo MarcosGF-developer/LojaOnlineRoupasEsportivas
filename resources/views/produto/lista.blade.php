@@ -41,6 +41,9 @@
                                 <th class="text-center"><a href="?ordem=descricao&busca={{ $busca }}">Descrição</a></th>
                                 <th class="text-center"><a href="?ordem=estoque&busca={{ $busca }}">Estoque</a></th>
                                 <th class="text-center"><a href="?ordem=valor&busca={{ $busca }}">Valor</a></th>
+                                <th class="text-center">Tamanho</th>
+                                <th class="text-center">Categoria</th>
+                                <th class="text-center">Categoria Pai</th>
                                 
                                 <th class="text-center">Ações</th>
                             </tr>
@@ -50,9 +53,12 @@
                                 <tr>
                                     <th class="text-center">{{ $produto->id }}</td>
                                     <td class="text-center">{{ $produto->nome }}</td>
-                                    <td class="text-center">{{ $produto->decricao }}</td>
+                                    <td class="text-center">{{ $produto->descricao }}</td>
                                     <td class="text-center">{{ $produto->estoque }}</td>
                                     <td class="text-center">{{ $produto->valor }}</td>
+                                    <td class="text-center">{{ $produto->tamanhos->sigla }}</td>
+                                    <td class="text-center">{{ $produto->categorias->nome }}</td>
+                                    <td class="text-center">{{ $produto->categorias->categoria_pai }}</td>
                                     <td class="text-center">
                                         <a href="{{ route('produto_cadastro', $produto->id) }}" class="btn btn-sm btn-warning">Alterar</a>
                                         <a class="btn btn-sm btn-danger" href="#" onclick="exclui( {{ $produto->id }} )">Excluir</a>
