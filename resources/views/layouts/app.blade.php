@@ -63,6 +63,7 @@
                                     <a class="dropdown-item" href="{{ route('tamanho_lista') }}">Tamanhos</a>
                                     <a class="dropdown-item" href="{{ route('categoria_lista') }}">Categorias</a>
                                     <a class="dropdown-item" href="{{ route('produto_lista') }}">Produtos</a>
+                                    <a class="dropdown-item" href="{{ route('lista_ecommerce')}}">Ecommerce</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -74,7 +75,7 @@
                                     </form>
                                 </div>
                                 
-                                    
+                                 
                                 
                             </li>
                         @endguest
@@ -82,10 +83,13 @@
                 </div>
             </div>
         </nav>
-
+        
+        
         <main class="py-4">
             @yield('content')
+            @yield ('conteudo')
         </main>
     </div>
+    
 </body>
 </html>

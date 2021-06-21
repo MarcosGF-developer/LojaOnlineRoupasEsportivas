@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\FotoProduto;
 use App\Models\Categoria;
 use App\Models\Tamanho;
@@ -11,7 +12,7 @@ use App\Models\Venda;
 
 class Produto extends Model
 {
-    use SoftDeletes; 
+    use HasFactory; 
     
     protected $table = "produtos";
     protected $primaryKey = "id";
@@ -31,6 +32,6 @@ class Produto extends Model
 
 
     public function vendas() {
-        return $this->belongsToMany(Venda::class, 'produtos_vendas', 'id_produtos', 'id_vendas')->withTimestamps();
+        return $this->belongsToMany(Venda::class, 'produtos_vendas', 'id_produtos', 'id_vendas')->whitPivot('quantidade','subtotal')->withTimestamps();
     }
 }

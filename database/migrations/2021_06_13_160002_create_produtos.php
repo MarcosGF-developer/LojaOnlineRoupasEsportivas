@@ -24,6 +24,7 @@ class CreateProdutos extends Migration
             $table->double('valor', 15, 2);
             $table->timestamps();
             $table->softDeletes();
+            
 
             $table->foreign('id_categorias')->references('id')->on('categorias');
             $table->foreign('id_tamanhos')->references('id')->on('tamanhos');

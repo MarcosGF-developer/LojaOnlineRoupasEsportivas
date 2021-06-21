@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('produto_salvar', $produto->id) }}">
+                    <form method="POST" action="{{ route('produto_salvar', $produto->id) }}" enctype="multipart/form-data"> 
                         @csrf
 
                         <div class="form-group row">
@@ -90,22 +90,18 @@
                                     </select>
                                 </div>
                         </div>
-                    
+                        <div class="form-group row">
+                            <label for="categoria" class="col-md-4 col-form-label text-md-right">Imagem</label>
+                                <div class="col-md-6">
+                                    <input type="file" class="form-control" name="imagem">
+                                </div>
+                        </div>
+                        
 
                         @if($produto->id > 0)
                             <div class="form-group row mt-5">
                                 
-                                <div class="col-3"></div>
-
-                                <div class="col text-center">
-                                    <a href="{{ route('fotos_produto_lista', $produto->id) }}" class="btn btn-sm btn-primary">
-                                        <h5>Fotos</h5>
-                                    </a>
-                                </div>
-
                                 
-
-                                <div class="col-3"></div>
 
                             </div>
                         @endif

@@ -44,6 +44,7 @@
                                 <th class="text-center">Tamanho</th>
                                 <th class="text-center">Categoria</th>
                                 <th class="text-center">Categoria Pai</th>
+                                <th class="text-center">Imagem</th>
                                 
                                 <th class="text-center">Ações</th>
                             </tr>
@@ -59,6 +60,7 @@
                                     <td class="text-center">{{ $produto->tamanhos->sigla }}</td>
                                     <td class="text-center">{{ $produto->categorias->nome }}</td>
                                     <td class="text-center">{{ $produto->categorias->categoria_pai }}</td>
+                                    <td class="text-center">{{ $produto->caminho_imagem}}</td>
                                     <td class="text-center">
                                         <a href="{{ route('produto_cadastro', $produto->id) }}" class="btn btn-sm btn-warning">Alterar</a>
                                         <a class="btn btn-sm btn-danger" href="#" onclick="exclui( {{ $produto->id }} )">Excluir</a>

@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Cliente;
 use App\Models\Endereco;
 use App\Models\Produto;
 
 class Venda extends Model
 {
-    use SoftDeletes;
+    use HasFactory;
     
     protected $table = "vendas";
     protected $primaryKey = "id";
@@ -24,6 +25,6 @@ class Venda extends Model
     }
     
     public function produtos(){
-        return $this->belongsToMany(Produto::class, 'produtos_vendas', 'id_vendas', 'id_produtos')->withTimestamps();
+        return $this->belongsToMany(Produto::class, 'produtos_vendas', 'id_vendas', 'id_produtos')->withPivot('quantidade', 'subtotal')->withTimestamps();
     }
 }

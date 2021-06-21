@@ -6,6 +6,8 @@ use App\Http\Controllers\CidadeController;
 use App\Http\Controllers\TamanhoController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\EcommerceController;
 
 
 Route::get('/', function () {
@@ -49,5 +51,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 /**ROTAS PRODUTO*/
     Route::get('/produto/lista', [ProdutoController::class,'lista'])->name('produto_lista');
     Route::get('/produto/cadastro/{id?}', [ProdutoController::class,'cadastro'])->name('produto_cadastro');
+    Route::get('/produto/cadastro', [ProdutoController::class,'cadastro'])->name('fotos_produto_lista');
     Route::post('/produto/salvar/{id?}', [ProdutoController::class,'salvar'])->name('produto_salvar');
     Route::get('/produto/excluir/{id}', [ProdutoController::class,'excluir'])->name('produto_excluir');
+
+/** ROTAS MERCADO */ 
+Route::get('/carrinho/ecommerce', [EcommerceController::class,'ecommerce'])->name('lista_ecommerce');
+
+
+/** ROTAS MERCADO CARRINHO*/ 
+ Route::get('/carrinho/pre_compra/{produto}', [CarrinhoController::class, 'pre_compra'])->name('adiciona_carrinho');
+ Route::post('/carrinho/adiciona', [CarrinhoController::class, 'finaliza_compra'])->name('finaliza_compra_carrinho');
+ Route::get('/carrinho', [CarrinhoController::class, 'visualiza'])->name('carrinho');
+ Route::get('/fecha_carrinho', [CarrinhoController::class, 'fecha_carrinho'])->name('fecha_carrinho');
