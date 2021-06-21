@@ -56,7 +56,14 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
+                                <div class="ml-2 mr-2">
+                                  <a href="{{ route('carrinho') }}" class="btn btn-primary bi-cart pr-2">
+                                  Carrinho
+                                  @if (session()->has('carrinho'))
+                                  <span class="badge bg-danger">{{ count(session('carrinho')) }}</span>
+                                  @endif
+                                  </a>
+                                </div>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('cidade_lista') }}">Cidades</a>
                                     <a class="dropdown-item" href="{{ route('endereco_lista') }}">Endereços</a>

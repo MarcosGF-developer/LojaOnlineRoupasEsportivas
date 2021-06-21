@@ -16,7 +16,7 @@ class CarrinhoController extends Controller
 		$produto = Produto::find($produto);
 
 		$carrinho = session('carrinho.carrinho');
-		dd($carrinho);
+
 		return view('carrinho.carrinho', [
             'produto' => $produto, 
             'carrinho' => $carrinho
@@ -65,7 +65,7 @@ class CarrinhoController extends Controller
         ]);
 	}
 
-	function fechar_carrinho(){
+	function fecha_carrinho(){
 		$venda = new Venda();
 		$venda->valor_total=0;
 		$venda->quantidade_item=0;
@@ -90,7 +90,7 @@ class CarrinhoController extends Controller
 		session()->forget('carrinho.carrinho');
 		session()->flash(['mensagem'=> 'Venda efetuada com sucesso']);
 
-		return redirect()->route('welcome');
+		return redirect()->route('lista_ecommerce');
 
 		}
 
