@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Loja Online</title>
+    <title>Loja Online de Roupas Esportivas</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -70,7 +70,7 @@
                                     <a class="dropdown-item" href="{{ route('tamanho_lista') }}">Tamanhos</a>
                                     <a class="dropdown-item" href="{{ route('categoria_lista') }}">Categorias</a>
                                     <a class="dropdown-item" href="{{ route('produto_lista') }}">Produtos</a>
-                                    <a class="dropdown-item" href="{{ route('lista_ecommerce')}}">Ecommerce</a>
+                                    <a class="dropdown-item" href="{{ route('lista_ecommerce')}}">E-commerce</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
