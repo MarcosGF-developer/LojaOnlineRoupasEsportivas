@@ -86,11 +86,20 @@ class ProdutoController extends Controller{
         $produto->descricao = $req->input('descricao');
         $produto->estoque = $req->input('estoque');
         $produto->valor = $req->input('valor');
+        $produto->caminho_imagem="";
 
         $slug = $produto->nome . " " . $produto->id;
         $slug = Str::slug($slug, '-');
         // $slug = $slug . "." . $imagem->extension();
         $produto->slug = $slug;
+
+        $produto->save();
+
+        $imagem = $req->file('imagem');
+        $extensao = $imagem->extension();
+        $nome_arquivo = "{$produto->id}.{$extensao}";
+        $nome_arquivo = $imagem->storeAs('imagens_produtos', $nome_arquivo);
+        $produto->caminho_imagem = "/uploads/{$nome_arquivo}";
 
         $produto->save();
 
