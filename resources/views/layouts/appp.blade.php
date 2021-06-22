@@ -74,7 +74,6 @@
                                         <a class="dropdown-item" href="{{ route('categoria_lista') }}">Categorias</a>
                                         <a class="dropdown-item" href="{{ route('produto_lista') }}">Produtos</a>
                                     @endif
-
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -95,12 +94,44 @@
             </div>
         </nav>
         
-        
-        <main class="py-3">
-            @yield('content')
-            @yield ('conteudo')
-        </main>
+            <div class="row justify-content-center mt-5">
+                @if (session('mensagem'))
+                <div class="alert alert-success">
+                  {{ session('mensagem') }}
+                </div>
+                @endif
+                @yield('conteudo')
+            </div>
+      
     </div>
     
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
