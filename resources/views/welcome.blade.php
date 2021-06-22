@@ -12,8 +12,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #000;
-                color: #fff;
+                background-color: #fff;
+                color: #000;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -49,7 +49,7 @@
             }
 
             .links > a {
-                color: #fff;
+                color: #000;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -80,8 +80,10 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Loja Online - Roupas Esportivas
+                <div class="title m-b-md">Loja Online - Roupas Esportivas
+                </div>
+                <div>
+                    <a href="{{ route('lista_ecommerce')}}" class="btn btn-link" ><h2>Acessar</h2></a>
                 </div>
 
             </div>

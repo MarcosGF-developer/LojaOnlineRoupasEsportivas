@@ -8,33 +8,48 @@ use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\EcommerceController;
+use App\Http\Controllers\Auth\ListaUsuariosController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+/** ROTAS MERCADO */ 
+    Route::get('/carrinho/ecommerce', [EcommerceController::class,'ecommerce'])->name('lista_ecommerce');
+
+
+
+
+
+Route::middleware(['auth'])->group(function(){
 
 
 /**ROTAS ENDEREÇO*/
-	Route::get('/endereco/lista', [EnderecoController::class,'lista'])->name('endereco_lista');
+    Route::get('/endereco/lista', [EnderecoController::class,'lista'])->name('endereco_lista');
     Route::get('/endereco/cadastro/{id?}',[EnderecoController::class,'cadastro'])->name('endereco_cadastro');
     Route::post('/endereco/salvar/{id?}', [EnderecoController::class,'salvar'])->name('endereco_salvar');
     Route::get('/endereco/excluir/{id}', [EnderecoController::class,'excluir'])->name('endereco_excluir');
 
-/**ROTAS CIDADE*/
-	Route::get('/cidade/lista', [CidadeController::class,'lista'])->name('cidade_lista');
-    Route::get('/cidade/cadastro/{id?}', [CidadeController::class,'cadastro'])->name('cidade_cadastro');
-    Route::post('/cidade/salvar/{id?}', [CidadeController::class,'salvar'])->name('cidade_salvar');
-    Route::get('/cidade/excluir/{id}', [CidadeController::class,'excluir'])->name('cidade_excluir');
+/** ROTAS MERCADO CARRINHO*/ 
+    Route::get('/carrinho/pre_compra/{produto}', [CarrinhoController::class, 'pre_compra'])->name('adiciona_carrinho');
+    Route::post('/carrinho/adiciona', [CarrinhoController::class, 'finaliza_compra'])->name('finaliza_compra_carrinho');
+    Route::get('/carrinho', [CarrinhoController::class, 'visualiza'])->name('carrinho');
+    Route::get('/fecha_carrinho', [CarrinhoController::class, 'fecha_carrinho'])->name('fecha_carrinho');
+
+
+});
+
+
+
+
+Route::middleware(['admin'])->group(function(){
 
 /**ROTAS TAMANHO*/
     Route::get('/tamanho/lista', [TamanhoController::class,'lista'])->name('tamanho_lista');
@@ -55,12 +70,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::post('/produto/salvar/{id?}', [ProdutoController::class,'salvar'])->name('produto_salvar');
     Route::get('/produto/excluir/{id}', [ProdutoController::class,'excluir'])->name('produto_excluir');
 
-/** ROTAS MERCADO */ 
-Route::get('/carrinho/ecommerce', [EcommerceController::class,'ecommerce'])->name('lista_ecommerce');
+/**ROTAS CIDADE*/
+    Route::get('/cidade/lista', [CidadeController::class,'lista'])->name('cidade_lista');
+    Route::get('/cidade/cadastro/{id?}', [CidadeController::class,'cadastro'])->name('cidade_cadastro');
+    Route::post('/cidade/salvar/{id?}', [CidadeController::class,'salvar'])->name('cidade_salvar');
+    Route::get('/cidade/excluir/{id}', [CidadeController::class,'excluir'])->name('cidade_excluir');
 
 
-/** ROTAS MERCADO CARRINHO*/ 
- Route::get('/carrinho/pre_compra/{produto}', [CarrinhoController::class, 'pre_compra'])->name('adiciona_carrinho');
- Route::post('/carrinho/adiciona', [CarrinhoController::class, 'finaliza_compra'])->name('finaliza_compra_carrinho');
- Route::get('/carrinho', [CarrinhoController::class, 'visualiza'])->name('carrinho');
- Route::get('/fecha_carrinho', [CarrinhoController::class, 'fecha_carrinho'])->name('fecha_carrinho');
+
+
+});
