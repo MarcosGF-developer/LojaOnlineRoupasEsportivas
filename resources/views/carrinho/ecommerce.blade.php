@@ -11,7 +11,7 @@
 			  <img src="{{($produto->caminho_imagem ? asset ($produto->caminho_imagem) : 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png' )}}" class="card-img-top img-fluid" alt="...">
 			  <div class="card-body " >
 			    <label><b>Nome </b></label><h5 class="card-title">{{ $produto->nome }}</h5>
-			    <label><b>Preço </b></label><p class="card-text">{{ $produto->valor}}</p>
+			    <label><b>Preço </b></label><p class="card-text">{{ $produto->valor_unitario}}</p>
 			    <label><b>Sexo </b></label><p class="card-text">{{ $produto->categorias->categoria_pai}}</p>
 			    <a href="{{ route('adiciona_carrinho', ['produto'=>$produto->id]) }}" class="btn btn-light w-100">Adicionar ao carrinho</a>
 			  </div>

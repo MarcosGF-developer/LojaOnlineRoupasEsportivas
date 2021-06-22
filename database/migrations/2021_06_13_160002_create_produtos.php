@@ -19,9 +19,9 @@ class CreateProdutos extends Migration
             $table->unsignedBigInteger('id_tamanhos');
             $table->string('nome', 250);
             $table->text('descricao', 250);
-            $table->integer('estoque');
+            $table->integer('quantidade_atual');
+            $table->decimal('valor_unitario', 15, 2);
             $table->string('slug', 250);
-            $table->double('valor', 15, 2);
             $table->timestamps();
             $table->softDeletes();
             

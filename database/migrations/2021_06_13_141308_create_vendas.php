@@ -15,16 +15,10 @@ class CreateVendas extends Migration
     {
         Schema::create('vendas', function (Blueprint $table) {
             $table->id();
-            $table->double('total', 15, 2);
-            $table->double('quantidade', 15, 5);
-            $table->double('subtotal', 15, 5);
-            $table->unsignedBigInteger('id_clientes');
-            $table->unsignedBigInteger('id_enderecos');
+            $table->decimal('valor_total', 15, 2);
+            $table->integer('quantidade_itens');
+            
             $table->timestamps();
-            $table->softDeletes();
-
-            $table->foreign('id_clientes')->references('id')->on('clientes');
-            $table->foreign('id_enderecos')->references('id')->on('enderecos');
         });
     }
 

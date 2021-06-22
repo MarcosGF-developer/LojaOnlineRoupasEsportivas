@@ -15,15 +15,11 @@ class CreateProdutosVendas extends Migration
     {
         Schema::create('produtos_vendas', function (Blueprint $table) {
             $table->id();
-            $table->double('quantidade', 15, 5);
-            $table->double('subtotal', 15, 5);
-            $table->unsignedBigInteger('id_vendas');
-            $table->unsignedBigInteger('id_produtos');
+            $table->integer('quantidade');
+            $table->decimal('subtotal', 15, 2);
+            $table->foreignId('id_vendas')->constrained('vendas');
+            $table->foreignId('id_produtos')->constrained('produtos');
             $table->timestamps();
-            $table->softDeletes();
-
-            $table->foreign('id_vendas')->references('id')->on('vendas');
-            $table->foreign('id_produtos')->references('id')->on('produtos');
         });
     }
 

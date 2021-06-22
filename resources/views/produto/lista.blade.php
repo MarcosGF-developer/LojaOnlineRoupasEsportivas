@@ -39,8 +39,8 @@
                                 <th class="text-center"><a href="?ordem=id&busca={{ $busca }}">ID</a></th>
                                 <th class="text-center"><a href="?ordem=nome&busca={{ $busca }}">Nome</a></th>
                                 <th class="text-center"><a href="?ordem=descricao&busca={{ $busca }}">Descrição</a></th>
-                                <th class="text-center"><a href="?ordem=estoque&busca={{ $busca }}">Estoque</a></th>
-                                <th class="text-center"><a href="?ordem=valor&busca={{ $busca }}">Valor</a></th>
+                                <th class="text-center"><a href="?ordem=quantidade_atual&busca={{ $busca }}">Estoque</a></th>
+                                <th class="text-center"><a href="?ordem=valor_unitario&busca={{ $busca }}">Valor</a></th>
                                 <th class="text-center">Tamanho</th>
                                 <th class="text-center">Categoria</th>
                                 <th class="text-center">Categoria Pai</th>
@@ -55,8 +55,8 @@
                                     <th class="text-center">{{ $produto->id }}</td>
                                     <td class="text-center">{{ $produto->nome }}</td>
                                     <td class="text-center">{{ $produto->descricao }}</td>
-                                    <td class="text-center">{{ $produto->estoque }}</td>
-                                    <td class="text-center">{{ $produto->valor }}</td>
+                                    <td class="text-center">{{ $produto->quantidade_atual }}</td>
+                                    <td class="text-center">{{ $produto->valor_unitario }}</td>
                                     <td class="text-center">{{ $produto->tamanhos->sigla }}</td>
                                     <td class="text-center">{{ $produto->categorias->nome }}</td>
                                     <td class="text-center">{{ $produto->categorias->categoria_pai }}</td>

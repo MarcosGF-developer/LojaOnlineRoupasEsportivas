@@ -68,7 +68,7 @@
                                     <a class="dropdown-item" href="{{ route('lista_ecommerce')}}">E-commerce</a>
                                     <a class="dropdown-item" href="{{ route('endereco_lista') }}">Endereços</a>
 
-                                    @if ($admin ?? false)
+                                    @if ($admin ?? true)
                                         <a class="dropdown-item" href="{{ route('cidade_lista') }}">Cidades</a>
                                         <a class="dropdown-item" href="{{ route('tamanho_lista') }}">Tamanhos</a>
                                         <a class="dropdown-item" href="{{ route('categoria_lista') }}">Categorias</a>

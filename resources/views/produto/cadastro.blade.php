@@ -44,12 +44,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="estoque" class="col-md-4 col-form-label text-md-right">Estoque</label>
+                            <label for="quantidade_atual" class="col-md-4 col-form-label text-md-right">Estoque</label>
 
                             <div class="col-md-6">
-                                <input id="estoque" type="text" class="form-control @error('estoque') is-invalid @enderror" name="estoque" value="{{ old('estoque', $produto->estoque) }}" required autocomplete="estoque" autofocus>
+                                <input id="quantidade_atual" type="text" class="form-control @error('quantidade_atual') is-invalid @enderror" name="quantidade_atual" value="{{ old('quantidade_atual', $produto->quantidade_atual) }}" required autocomplete="quantidade_atual" autofocus>
 
-                                @error('estoque')
+                                @error('quantidade_atual')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -58,12 +58,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="valor" class="col-md-4 col-form-label text-md-right">Valor</label>
+                            <label for="valor_unitario" class="col-md-4 col-form-label text-md-right">Valor</label>
 
                             <div class="col-md-6">
-                                <input id="valor" type="text" class="form-control @error('valor') is-invalid @enderror" name="valor" value="{{ old('valor', $produto->valor) }}" required autocomplete="valor" autofocus>
+                                <input id="valor_unitario" type="text" class="form-control @error('valor_unitario') is-invalid @enderror" name="valor_unitario" value="{{ old('valor_unitario', $produto->valor_unitario) }}" required autocomplete="valor_unitario" autofocus>
 
-                                @error('valor')
+                                @error('valor_unitario')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
