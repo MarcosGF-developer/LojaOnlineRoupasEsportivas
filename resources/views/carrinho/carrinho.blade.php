@@ -43,8 +43,8 @@
 					<td>
 					<input type="hidden" value="{{ $produto->id }}" name="id">
 					<div class="row">
-						<div class="col-md-10">
-							<b><h3>{{ $produto->valor }}</h3></b>
+						<div class="col-md-12">
+							<b><h3>{{ $produto->valor_unitario }}</h3></b>
 						</div>
 					</td>
 				</tr>
@@ -91,9 +91,9 @@
 					<td>{{ $c['produto']->nome}}</td>
 					<td>{{ $c['quantidade']}}</td>
 					@php
-						$total += $c['quantidade'] * $c['produto']->valor
+						$total += $c['quantidade'] * $c['produto']->valor_unitario
 					@endphp
-					<td>{{ $c['quantidade'] * $c['produto']->valor}}</td>
+					<td>{{ $c['quantidade'] * $c['produto']->valor_unitario}}</td>
 				</tr>
 			@endforeach
 			</tbody>

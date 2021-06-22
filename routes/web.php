@@ -30,6 +30,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth'])->group(function(){
 
+/** ROTAS VENDAS */ 
+    Route::get('/vendas', [CarrinhoController::class,'lista'])->name('vendas');
+
 
 /**ROTAS ENDEREÇO*/
     Route::get('/endereco/lista', [EnderecoController::class,'lista'])->name('endereco_lista');
@@ -45,11 +48,6 @@ Route::middleware(['auth'])->group(function(){
 
 
 });
-
-
-
-
-Route::middleware(['admin'])->group(function(){
 
 /**ROTAS TAMANHO*/
     Route::get('/tamanho/lista', [TamanhoController::class,'lista'])->name('tamanho_lista');
@@ -79,4 +77,3 @@ Route::middleware(['admin'])->group(function(){
 
 
 
-});

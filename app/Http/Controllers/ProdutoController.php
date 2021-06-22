@@ -65,7 +65,7 @@ class ProdutoController extends Controller{
 
         $req->validate([
             'nome' => 'required|min:3',
-            'valor' => 'required|numeric',
+            'valor_unitario' => 'required|numeric',
         ]);
 
         if($id > 0){
@@ -84,8 +84,8 @@ class ProdutoController extends Controller{
         $produto->id_categorias = $id_categorias;
         $produto->nome = $req->input('nome');
         $produto->descricao = $req->input('descricao');
-        $produto->estoque = $req->input('estoque');
-        $produto->valor = $req->input('valor');
+        $produto->quantidade_atual = $req->input('quantidade_atual');
+        $produto->valor_unitario = $req->input('valor_unitario');
         $produto->caminho_imagem="";
 
         $slug = $produto->nome . " " . $produto->id;
