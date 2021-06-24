@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use App\Models\Venda;
+use App\Models\Cliente;
+use App\Models\ProdutoVenda;
+use App\Models\User;
+use Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 
 class CarrinhoController extends Controller
@@ -66,6 +72,34 @@ class CarrinhoController extends Controller
 	}
 
     public function lista(Request $req) {
+
+        $id_clientes = (DB::table('clientes')->where('id_users', Auth::user()->id)->first())->id;
+
+        $vendas = new Venda();
+
+        $ordem = $req->query('ordem', 'id');
+        $busca = $req->query('busca', '');
+
+        $vendas = $vendas->orderBy($ordem, 'asc');
+        $vendas = $vendas->where($ordem, 'LIKE', "%$busca%");
+
+        
+
+        $vendas = $vendas->orderBy('id_clientes', 'asc');
+        $vendas = $vendas->where('id_clientes', '=', $id_clientes);
+
+        $vendas = $vendas->paginate($this->pag_size);
+
+        return view('venda.lista', [
+            'vendas' => $vendas,
+            'ordem' => $ordem,
+            'busca' => $busca
+        ]);
+    
+    }
+
+    public function lista_todos(Request $req) {
+
         $vendas = new Venda();
 
         $ordem = $req->query('ordem', 'id');
@@ -80,15 +114,23 @@ class CarrinhoController extends Controller
 
         $vendas = $vendas->paginate($this->pag_size)->appends($vetor_parametros);
 
-        return view('venda.lista', [
+        return view('venda.lista_todos', [
             'vendas' => $vendas,
             'ordem' => $ordem,
             'busca' => $busca
         ]);
+    
     }
 
-	function fecha_carrinho(){
+	function fecha_carrinho(Request $req){
+
+        $clientes = (DB::table('clientes')->where('id_users', Auth::user()->id)->first());
+       
+
+
 		$venda = new Venda();
+        $venda->id_clientes = $clientes->id;
+
         $venda->valor_total = 0;
         $venda->quantidade_itens = 0;
         $venda->save();
@@ -109,12 +151,15 @@ class CarrinhoController extends Controller
             ]);
         }
 
+        
+
         $venda->quantidade_itens = count($carrinho);
         $venda->valor_total = $valor_total;
         $venda->save();
 
         session()->forget('carrinho');
         session()->flash('mensagem', 'Venda efetuada com sucesso');
+
 
 		return redirect()->route('vendas');
 

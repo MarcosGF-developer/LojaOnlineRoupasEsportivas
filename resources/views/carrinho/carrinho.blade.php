@@ -1,6 +1,6 @@
-@extends ('layouts.appp')
+@extends ('layouts.app')
 
-@section('conteudo')
+@section('conteudos')
 
 @if(isset($produto))
 	<div class="col-md-8">

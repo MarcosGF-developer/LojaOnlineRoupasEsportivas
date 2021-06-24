@@ -17,8 +17,12 @@ class CreateVendas extends Migration
             $table->id();
             $table->decimal('valor_total', 15, 2);
             $table->integer('quantidade_itens');
+
+            $table->unsignedBigInteger('id_clientes');
             
             $table->timestamps();
+
+            $table->foreign('id_clientes')->references('id')->on('clientes');
         });
     }
 
