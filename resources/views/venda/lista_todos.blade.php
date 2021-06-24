@@ -10,7 +10,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-12 col-md-5">
-                            <h2>Lista de <b> Compras </b></h2>
+                            <h2>Lista de <b> Vendas </b></h2>
                         </div>
                         
                         <div class="col">
@@ -37,6 +37,7 @@
                         <thead>
                             <tr class="table-ligth">
                                 <th class="text-center">ID</th>
+                                <th class="text-center">Comprador</th>
                                 <th class="text-center">Valor Total</th>
                                 <th class="text-center">Quantidade de Itens</th>
                                 <th class="text-center">Data</th>
@@ -45,8 +46,9 @@
                         <tbody>
                             @foreach ($vendas as $v)
                                 <tr>
-                                    <td class="text-center">{{ $v->id }}</td>
                                     
+                                    <td class="text-center">{{ $v->id }}</td>
+                                    <td class="text-center">{{ $v->cliente->user->name }}</td>
                                     <td class="text-center">{{ $v->valor_total }}</td>
                                     <td class="text-center">{{ $v->quantidade_itens }}</td>
                                     <td class="text-center">{{ date("d/m/Y", strtotime("$v->created_at")) }}</td>
