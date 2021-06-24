@@ -8,15 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class AppController extends Controller
 {
-    
-
-        public static function ehAdmin() {
+    public static function ehAdmin() {
 
         if(Auth::user() == null){
             return false;
         }
-        $cliente = (DB::table('clientes')->where('id_users', Auth::user()->id)->first());
-        return ($cliente->admin);
+        $clientes = (DB::table('clientes')->where('id_users', Auth::user()->id)->first());
+        return ($clientes->admin);
     }
-    
 }

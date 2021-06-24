@@ -82,6 +82,7 @@
             <div class="content">
                 <div class="title m-b-md">Loja Online - Roupas Esportivas
                 </div>
+                
                 <div>
                     <a href="{{ route('lista_ecommerce')}}" class="btn btn-link" ><h2>Acessar</h2></a>
                 </div>

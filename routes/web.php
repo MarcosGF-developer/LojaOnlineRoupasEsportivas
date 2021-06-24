@@ -25,13 +25,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::get('/carrinho/ecommerce', [EcommerceController::class,'ecommerce'])->name('lista_ecommerce');
 
 
-
-
-
 Route::middleware(['auth'])->group(function(){
 
 /** ROTAS VENDAS */ 
     Route::get('/vendas', [CarrinhoController::class,'lista'])->name('vendas');
+    Route::get('/vendas/todos', [CarrinhoController::class,'lista_todos'])->name('vendas_todos');
 
 
 /**ROTAS ENDEREÇO*/
@@ -48,6 +46,10 @@ Route::middleware(['auth'])->group(function(){
 
 
 });
+
+
+Route::middleware(['admin'])->group(function(){
+
 
 /**ROTAS TAMANHO*/
     Route::get('/tamanho/lista', [TamanhoController::class,'lista'])->name('tamanho_lista');
@@ -73,3 +75,5 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/cidade/cadastro/{id?}', [CidadeController::class,'cadastro'])->name('cidade_cadastro');
     Route::post('/cidade/salvar/{id?}', [CidadeController::class,'salvar'])->name('cidade_salvar');
     Route::get('/cidade/excluir/{id}', [CidadeController::class,'excluir'])->name('cidade_excluir');
+
+});

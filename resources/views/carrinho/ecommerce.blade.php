@@ -1,6 +1,6 @@
-@extends('layouts.appp')
+@extends('layouts.app')
 
-@section('conteudo')
+@section('conteudos')
 	
 		
 	@foreach($produtos as $produto)
