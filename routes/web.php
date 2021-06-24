@@ -73,7 +73,3 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/cidade/cadastro/{id?}', [CidadeController::class,'cadastro'])->name('cidade_cadastro');
     Route::post('/cidade/salvar/{id?}', [CidadeController::class,'salvar'])->name('cidade_salvar');
     Route::get('/cidade/excluir/{id}', [CidadeController::class,'excluir'])->name('cidade_excluir');
-
-
-
-
