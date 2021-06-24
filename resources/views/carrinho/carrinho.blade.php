@@ -1,10 +1,9 @@
-@extends ('layouts.app')
+@extends ('layouts.appp')
 
 @section('conteudo')
 
 @if(isset($produto))
-<div class="row justify-content-center">
-	<div class="col-md-10">
+	<div class="col-md-8">
 
 		    <div class="card text-white bg-dark">
 				<div class="card-header ">
@@ -58,7 +57,7 @@
 			</div>
 			</div>
 	</div>
-</div>
+
 @endif
 @if (isset($carrinho))
 <div class="row justify-content-center">
@@ -68,9 +67,7 @@
 <div class="card-header">
         <h2><b>Você já tem Carrinho:</b></h2>
 </div>
-<div class="row">
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
+	<div class="col-md-12">
 		<table class="table table-dark table-striped">
 			<thead>
 				<tr>
@@ -103,7 +100,7 @@
 		<a href="{{ route('fecha_carrinho') }}" class="btn btn-light"><i class="bi-cart"></i> Fechar compra</a>
 	</div>
 	<div class="col-md-2-mb-5"></div>
-</div>
+
 </div>
 </div>
 </div>
