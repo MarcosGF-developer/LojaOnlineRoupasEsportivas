@@ -52,18 +52,19 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-                                <div class="ml-2 mr-2">
+                            <div class="ml-2 mr-2">
                                   <a href="{{ route('carrinho') }}" class="btn btn-light bi-cart pr-2">
                                   Carrinho
                                   @if (session()->has('carrinho'))
                                   <span class="badge bg-danger">{{ count(session('carrinho')) }}</span>
                                   @endif
                                   </a>
-                                </div>
+                            </div>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+                                
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('lista_ecommerce')}}">E-commerce</a>
                                     <a class="dropdown-item" href="{{ route('endereco_lista') }}">Endereços</a>
@@ -77,20 +78,22 @@
                                         <a class="dropdown-item" href="{{ route('vendas') }}">Minhas Compras</a>
                                     @endif
 
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Sair') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                
                                 </div>
                                 
                                  
                                 
                             </li>
+                            <div>
+                                <a class="btn btn-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Sair') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                </form>
+                            </div>
                         @endguest
                     </ul>
                 </div>
@@ -101,7 +104,7 @@
             @yield('content')
             @yield ('conteudo')
 
-            <div class="row justify-content-center">
+            <div class="py-3 row justify-content-center">
             @yield ('conteudos')
             </div>
 
